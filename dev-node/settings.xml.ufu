@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+<mirrors>
+	<mirror>
+		<id>archiva.default</id>
+		<url>http://archiva.facom.ufu.br/archiva/repository/facom</url>
+		<mirrorOf>*</mirrorOf>
+	</mirror>
+</mirrors> 
+
+
+<profiles>
+	<profile>
+		<id>archiva.default</id>
+		<properties>
+		  <snapshot.url>http://archiva.facom.ufu.br/archiva/repository/snapshots</snapshot.url>
+		  <release.url>http://archiva.facom.ufu.br/archiva/repository/internal</release.url>
+		</properties>
+		<repositories>
+			<repository>
+				<id>local-repo-facom-internal</id>
+				<name>Repositorio versionamento FACOM Interno</name>
+				<url>http://archiva.facom.ufu.br/archiva/repository/internal</url>
+			</repository>
+			<repository>
+				<id>local-repo-facom-external</id>
+				<name>Repositorio versionamento FACOM external</name>
+				<url>http://archiva.facom.ufu.br/archiva/repository/external/</url>
+			</repository>
+			<repository>
+				<id>local-repo-facom-snapshots</id>
+				<name>Repositorio versionamento FACOM Snapshots</name>
+				<url>http://archiva.facom.ufu.br/archiva/repository/snapshots</url>
+			</repository>
+		</repositories>
+	</profile>
+</profiles>
+
+<activeProfiles>
+	<activeProfile>archiva.default</activeProfile>
+</activeProfiles>
+
+  <proxies>
+      <proxy>
+      <id>optional</id>
+      <active>true</active>
+      <protocol>http</protocol>
+      <host>proxy.ufu.br</host>
+      <port>3128</port>
+      <nonProxyHosts>localhost|*.ufu.br</nonProxyHosts>
+    </proxy>
+  </proxies>
+
+
+<servers>
+	<server>
+		<id>archiva.default</id>
+        	<username>guest</username>
+        	<password>XXXXX</password>
+	</server>
+</servers>
+
+</settings>
