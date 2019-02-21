@@ -70,9 +70,9 @@ esac
 if [ ! -z "$buildAll" ]
   then		
 	#Build SONAr Dashboard Docker Image
-	cp templates/spring-boot-node/Dockerfile ../sonar/sonar-dashboard
-	mvn clean package dockerfile:build -pl sonar-dashboard -f ../sonar/pom.xml
-	rm ../sonar/sonar-dashboard/Dockerfile
+	cp template/Dockerfile ../../sonar/sonar-dashboard
+	mvn clean package dockerfile:build -pl sonar-dashboard -f ../../sonar/pom.xml
+	rm ../../sonar/sonar-dashboard/Dockerfile
 
 	#Clean Unused Images and Containers
 	docker system prune -f
@@ -99,9 +99,9 @@ else
 	     echo -e "\t./build.sh h|help ----------------------------------------------------------- shows the information above."
 	else
 		#Build $target Docker Image
-		cp templates/spring-boot-node/Dockerfile ../sonar/$target
-		mvn clean package dockerfile:build -pl $target -f ../sonar/pom.xml
-		rm ../sonar/$target/Dockerfile
+		cp template/Dockerfile ../../sonar/$target
+		mvn clean package dockerfile:build -pl $target -f ../../sonar/pom.xml
+		rm ../../sonar/$target/Dockerfile
 
 		#Clean Unused Images and Containers
 		docker system prune -f

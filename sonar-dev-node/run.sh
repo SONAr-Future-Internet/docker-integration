@@ -1,0 +1,1 @@
+docker run -i -t --rm meharsonar/sonar-dev-node
