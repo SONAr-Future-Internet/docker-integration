@@ -23,35 +23,24 @@ then
   ovsdb-server --detach --remote=punix:/var/run/openvswitch/db.sock
   ovs-vswitchd --detach --pidfile=/var/run/openvswitch/ovs-vswitchd.pid 
   ovs-vsctl --no-wait init
- 
+
+  ovs-vsctl add-br br0
+  ovs-vsctl set bridge br0 stp_enable=true
+
   x=0
-  until [ $x = "4" ]; do
-    ovs-vsctl add-br br$x
-    ovs-vsctl set bridge br$x datapath_type=netdev
-    x=$((x+1))
-  done
-
-  if [ $MANAGEMENT_INTERFACE == 1 ]
-  then
-    x=1
-  else
-    x=0
-  fi
-
   until [ $x = "16" ]; do
     ovs-vsctl add-port br0 eth$x
+    ovs-vsctl set Interface eth$x lldp:enable=true
     x=$((x+1))
   done
+
 else
   ovsdb-server --detach --remote=punix:/var/run/openvswitch/db.sock
   ovs-vswitchd --detach --pidfile=/var/run/openvswitch/ovs-vswitchd.pid
 fi
 
+ip link set dev br0 up
 
-x=0
-until [ $x = "4" ]; do
-  ip link set dev br$x up
-  x=$((x+1))
-done
+dhclient br0
 
 /bin/sh
