@@ -111,35 +111,35 @@ else
 	if [ -z "$target" ]
 	  then
 	     echo -e "Usage:"
-  		 echo -e "\t./build.sh all-------------------------------------------------------------------------- builds all modules."
-	     echo -e "\t./build.sh ascoe|alarms|alarms-collector|alarms-self-collector-entity --------------- builds 'Alarms Self-Collector Entity' application."
-	     echo -e "\t./build.sh mscoe|metrics|metrics-collector|metrics-self-collector-entity ------------ builds 'Metrics Self-Collector Entity' application."
-	     echo -e "\t./build.sh sscoe|samples|samples-collector|samples-self-collector-entity ------------ builds 'Samples Self-Collector Entity' application."
-	     echo -e "\t./build.sh tscoe|toplogy|topology-collector|topology-self-collector-entity ---------- builds 'Topology Self-Collector Entity' application."
-	     echo -e "\t./build.sh lscoe|logs|logs-collector|logs-self-collector-entity --------------------- builds 'Logs Self-Collector Entity' application."
-	     echo -e "\t./build.sh dsle|diagnosis|diagnosis-learning|diagnosis-self-learning-entity --------- builds 'Diagnosis Self-Learning Entity' application."
-	     echo -e "\t./build.sh tsle|tunning|tunning-learning|tunning-self-learning-entity --------------- builds 'Tunning Self-Learning Entity' application."
-	     echo -e "\t./build.sh psle|prediction|prediction-learning|prediction-self-learning-entity ------ builds 'Prediction Self-Learning Entity' application."
-	     echo -e "\t./build.sh rsle|rating|rating-learning|rating-self-learning-entity ------------------ builds 'Rating Self-Learning Entity' application."
-	     echo -e "\t./build.sh isle|intent|intent-learning|intent-self-learning-entity ------------------ builds 'Intent Self-Learning Entity' application."
-	     echo -e "\t./build.sh sce|configuration|configuration-entity|self-configuration-entity --------- builds 'Self-Configuration Entity' application."
-	     echo -e "\t./build.sh she|healing|healing-entity|self-healing-entity --------------------------- builds 'Self-Healing Entity' application."
-	     echo -e "\t./build.sh sme|management|management-entity|self-management-entity ------------------ builds 'Self-Management Entity' application."
-	     echo -e "\t./build.sh soe|optimization|optimization-entity|self-optimization-entity ------------ builds 'Self-Optimization Entity' application."
-	     echo -e "\t./build.sh sple|planning|planning-entity|self-planning-entity ----------------------- builds 'Self-Planning Entity' application."
-	     echo -e "\t./build.sh spe|protection|protection-entity|self-protection-entity ------------------ builds 'Self-Protection Entity' application."
-	     echo -e "\t./build.sh asb|administration-bus|administration-service-bus ------------------------ builds 'Administration-Service-Manager' application."
-	     echo -e "\t./build.sh csb|customer-bus|customer-service-bus ------------------------------------ builds 'Customer-Service-Manager' application."
-	     echo -e "\t./build.sh isb|integration-bus|integration-service-bus ------------------------------ builds 'Integration-Service-Manager' application."
-	     echo -e "\t./build.sh nem|event-manager|network-event-manager ---------------------------------- builds 'Network-Event-Manager' application."
-	     echo -e "\t./build.sh abm|boot-manager|auto-boot-manager --------------------------------------- builds 'Auto-Boot-Manager' application."
-	     echo -e "\t./build.sh cpi|interceptor|control-plane-interceptor -------------------------------- builds 'Control-Plane-Interceptor' application."
-	     echo -e "\t./build.sh h|help ------------------------------------------------------------------- shows the information above."
+  	     echo -e "\t./build.sh all------------------------------------------------------------------ builds all modules."
+	     echo -e "\t./build.sh ascoe|alarms|alarms-collector|alarms-self-collector-entity ---------- builds 'Alarms Self-Collector Entity' application."
+	     echo -e "\t./build.sh mscoe|metrics|metrics-collector|metrics-self-collector-entity ------- builds 'Metrics Self-Collector Entity' application."
+	     echo -e "\t./build.sh sscoe|samples|samples-collector|samples-self-collector-entity ------- builds 'Samples Self-Collector Entity' application."
+	     echo -e "\t./build.sh tscoe|toplogy|topology-collector|topology-self-collector-entity ----- builds 'Topology Self-Collector Entity' application."
+	     echo -e "\t./build.sh lscoe|logs|logs-collector|logs-self-collector-entity ---------------- builds 'Logs Self-Collector Entity' application."
+	     echo -e "\t./build.sh dsle|diagnosis|diagnosis-learning|diagnosis-self-learning-entity ---- builds 'Diagnosis Self-Learning Entity' application."
+	     echo -e "\t./build.sh tsle|tunning|tunning-learning|tunning-self-learning-entity ---------- builds 'Tunning Self-Learning Entity' application."
+	     echo -e "\t./build.sh psle|prediction|prediction-learning|prediction-self-learning-entity - builds 'Prediction Self-Learning Entity' application."
+	     echo -e "\t./build.sh rsle|rating|rating-learning|rating-self-learning-entity ------------- builds 'Rating Self-Learning Entity' application."
+	     echo -e "\t./build.sh isle|intent|intent-learning|intent-self-learning-entity ------------- builds 'Intent Self-Learning Entity' application."
+	     echo -e "\t./build.sh sce|configuration|configuration-entity|self-configuration-entity ---- builds 'Self-Configuration Entity' application."
+	     echo -e "\t./build.sh she|healing|healing-entity|self-healing-entity ---------------------- builds 'Self-Healing Entity' application."
+	     echo -e "\t./build.sh sme|management|management-entity|self-management-entity ------------- builds 'Self-Management Entity' application."
+	     echo -e "\t./build.sh soe|optimization|optimization-entity|self-optimization-entity ------- builds 'Self-Optimization Entity' application."
+	     echo -e "\t./build.sh sple|planning|planning-entity|self-planning-entity ------------------ builds 'Self-Planning Entity' application."
+	     echo -e "\t./build.sh spe|protection|protection-entity|self-protection-entity ------------- builds 'Self-Protection Entity' application."
+	     echo -e "\t./build.sh asb|administration-bus|administration-service-bus ------------------- builds 'Administration-Service-Manager' application."
+	     echo -e "\t./build.sh csb|customer-bus|customer-service-bus ------------------------------- builds 'Customer-Service-Manager' application."
+	     echo -e "\t./build.sh isb|integration-bus|integration-service-bus ------------------------- builds 'Integration-Service-Manager' application."
+	     echo -e "\t./build.sh nem|event-manager|network-event-manager ----------------------------- builds 'Network-Event-Manager' application."
+	     echo -e "\t./build.sh abm|boot-manager|auto-boot-manager ---------------------------------- builds 'Auto-Boot-Manager' application."
+	     echo -e "\t./build.sh cpi|interceptor|control-plane-interceptor --------------------------- builds 'Control-Plane-Interceptor' application."
+	     echo -e "\t./build.sh h|help -------------------------------------------------------------- shows the information above."
 	else
 		#Build $target Docker Image
-		cp template/Dockerfile ../../sonar/$target
-		mvn clean package dockerfile:build -pl $target -f ../../sonar/pom.xml
-		rm ../../sonar/$target/Dockerfile
+		cp template/Dockerfile ../../sources/$target
+		mvn clean package dockerfile:build -pl $target -f ../../sources/pom.xml
+		rm ../../sources/$target/Dockerfile
 
 		#Clean Unused Images and Containers
 		docker system prune -f
