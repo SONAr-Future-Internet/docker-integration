@@ -1,0 +1,8 @@
+#Commands
+
+#show arp
+ovs-appctl tnl/arp/show
+ovs-appctl fdb/show br0
+
+#dump flows
+ovs-ofctl -O OpenFlow13 dump-flows br0
