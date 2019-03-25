@@ -32,4 +32,7 @@ ip link set dev br0 up
 
 dhclient br0
 
+snmpd -c /etc/snmpd.conf
+lldpd -x
+
 /bin/sh
