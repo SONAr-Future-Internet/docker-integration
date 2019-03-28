@@ -1,0 +1,1 @@
+docker run -i -t --rm meharsonar/client-gui

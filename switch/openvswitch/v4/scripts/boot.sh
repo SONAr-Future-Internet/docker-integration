@@ -19,7 +19,7 @@ then
   x=0
   until [ $x = "16" ]; do
     ovs-vsctl add-port br0 eth$x
-    ovs-vsctl set Interface eth$x lldp:enable=true
+    # ovs-vsctl set Interface eth$x lldp:enable=true
     x=$((x+1))
   done
 
