@@ -1,1 +1,1 @@
-docker run -i -t --rm -p 127.0.0.1:9042:9042 -p 127.0.0.1:9160:9160 meharsonar/rabbitmq
+docker run -i -t --rm -p 127.0.0.1:4369:4369 -p 127.0.0.1:5671:5671 -p 127.0.0.1:5672:5672 -p 127.0.0.1:25672:25672 meharsonar/rabbitmq

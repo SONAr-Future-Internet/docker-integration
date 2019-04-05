@@ -1,1 +1,1 @@
-docker run -i -t --rm -p 127.0.0.1:9042:9042 -p 127.0.0.1:9160:9160 meharsonar/cassandra
+docker run -i -t --rm -p 127.0.0.1:7000:7000 -p 127.0.0.1:7001:7001 -p 127.0.0.1:7199:7199 -p 127.0.0.1:9042:9042 -p 127.0.0.1:9160:9160 meharsonar/cassandra
