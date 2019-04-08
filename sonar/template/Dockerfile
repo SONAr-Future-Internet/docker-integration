@@ -1,5 +1,5 @@
 #Based on custom node
-FROM meharsonar/node
+FROM meharsonar/node:latest
 
 #Support
 MAINTAINER Mauricio Amaral Gonçalves <mauricioamaralg@ufu.br>
