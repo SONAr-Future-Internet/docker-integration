@@ -81,4 +81,6 @@ VOLUME /etc/openvswitch/
 
 ADD scripts/boot.sh /bin/boot.sh
 
+ADD archives/sysctl.conf /etc/sysctl.conf
+
 CMD /bin/sh /bin/boot.sh
