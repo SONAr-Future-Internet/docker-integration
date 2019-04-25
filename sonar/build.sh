@@ -6,7 +6,7 @@ case ${1,,} in
 	ascoe) 	target="self-collector-entities/alarms-self-collector-entity" ;;
 	mscoe) 	target="self-collector-entities/metrics-self-collector-entity" ;;
 	sscoe) 	target="self-collector-entities/samples-self-collector-entity" ;;
-	mscoe) 	target="self-collector-entities/topology-self-collector-entity" ;;
+	tscoe) 	target="self-collector-entities/topology-self-collector-entity" ;;
 	lscoe) 	target="self-collector-entities/logs-self-collector-entity" ;;
 	dsle) 	target="self-learning-entities/diagnosis-self-learning-entity" ;;
 	rsle) 	target="self-learning-entities/rating-self-learning-entity" ;;

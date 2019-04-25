@@ -122,5 +122,5 @@ if [ 	-z "$target" ]
      echo -e "\t./build.sh cpi|interceptor|control-plane-interceptor -------------------------------- runs 'Control-Plane-Interceptor' application as a Docker Container."
      echo -e "\t./build.sh h|help ------------------------------------------------------------------- shows the information above."
 else
-     docker run -i -t --rm -e "DNDB_SEEDS=192.168.0.1:9042" -e "NEM_SEEDS=192.168.0.1:5671" meharsonar/$target
+     docker run -i -t --rm -e "NDB_SEEDS=192.168.0.1:9042" -e "NEM_SEEDS=192.168.0.1:5671" meharsonar/$target
 fi
