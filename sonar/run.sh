@@ -70,7 +70,7 @@ case ${1,,} in
 	interceptor)		target="control-plane-interceptor" ;;
 	container-manager)	target="sonar-containerized-infrastructure-manager" ;;
 	boot-manager)  		target="auto-boot-manager" ;;
-	dashboard)   			target="sonar-dashboard" ;;
+	dashboard)   		target="sonar-dashboard" ;;
 
 	alarms) 	target="alarms-self-collector-entity" ;;
 	metrics) 	target="metrics-self-collector-entity" ;;
@@ -118,9 +118,13 @@ if [ 	-z "$target" ]
      echo -e "\t./build.sh csb|customer-bus|customer-service-bus ------------------------------------ runs 'Customer-Service-Manager' application as a Docker Container."
      echo -e "\t./build.sh isb|integration-bus|integration-service-bus ------------------------------ runs 'Integration-Service-Manager' application as a Docker Container."
      echo -e "\t./build.sh nem|event-manager|network-event-manager ---------------------------------- runs 'Network-Event-Manager' application as a Docker Container."
+     echo -e "\t./build.sh dhcp|dhcp-server --------------------------------------------------------- runs 'SONAr-DHCP-Server' application as a Docker Container."
      echo -e "\t./build.sh abm|boot-manager|auto-boot-manager --------------------------------------- runs 'Auto-Boot-Manager' application as a Docker Container."
      echo -e "\t./build.sh cpi|interceptor|control-plane-interceptor -------------------------------- runs 'Control-Plane-Interceptor' application as a Docker Container."
      echo -e "\t./build.sh h|help ------------------------------------------------------------------- shows the information above."
 else
-     docker run -i -t --rm -e "NDB_SEEDS=192.168.0.1:9042" -e "NEM_SEEDS=192.168.0.1:5671" meharsonar/$target
+     #docker run -i -t --rm -e "NDB_SEEDS=192.168.0.1:9042" -e "NEM_SEEDS=192.168.0.1:5671" meharsonar/$target
+     case $target in
+        sonar-dhcp-server)  docker run -i -t --rm -e "NDB_STRATEGY=cassandra" -e "NDB_SEEDS=192.168.0.1:9042" -e "NEM_STRATEGY=rabbitmq" -e "NEM_SEEDS=192.168.0.1:5672" -e "SONAR_SERVER_LOCAL_IP_ADDRESS=192.168.0.1" -e "SONAR_SERVER_LOCAL_IP_BROADCAST=192.168.0.255" -e "SONAR_SERVER_LOCAL_IP_MASK=255.255.255.0" --network "host"  meharsonar/$target ;;
+     esac
 fi

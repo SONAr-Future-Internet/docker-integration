@@ -141,6 +141,6 @@ else
 		rm ../../sources/$target/Dockerfile
 
 		#Clean Unused Images and Containers
-		docker system prune -f
+		#docker system prune -f
 	fi
 fi
