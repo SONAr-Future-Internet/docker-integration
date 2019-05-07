@@ -126,5 +126,6 @@ else
      #docker run -i -t --rm -e "NDB_SEEDS=192.168.0.1:9042" -e "NEM_SEEDS=192.168.0.1:5671" meharsonar/$target
      case $target in
         sonar-dhcp-server)  docker run -i -t --rm -e "NDB_STRATEGY=cassandra" -e "NDB_SEEDS=192.168.0.1:9042" -e "NEM_STRATEGY=rabbitmq" -e "NEM_SEEDS=192.168.0.1:5672" -e "SONAR_SERVER_LOCAL_IP_ADDRESS=192.168.0.1" -e "SONAR_SERVER_LOCAL_IP_BROADCAST=192.168.0.255" -e "SONAR_SERVER_LOCAL_IP_MASK=255.255.255.0" --network "host"  meharsonar/$target ;;
+	self-configuration-entity)  docker run -i -t --rm -e "NDB_STRATEGY=cassandra" -e "NDB_SEEDS=192.168.0.1:9042" -e "NEM_STRATEGY=rabbitmq" -e "NEM_SEEDS=192.168.0.1:5672" -e "SDN_SOUTH_SEEDS=192.168.0.1:6653" -e "SDN_STRATEGY=onos" --network "host"  meharsonar/$target ;;
      esac
 fi
