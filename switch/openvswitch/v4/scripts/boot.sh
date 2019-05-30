@@ -26,6 +26,19 @@ then
 else
   ovsdb-server --detach --remote=punix:/var/run/openvswitch/db.sock --remote=ptcp:6640
   ovs-vswitchd --detach --pidfile=/var/run/openvswitch/ovs-vswitchd.pid
+
+  #Cleanup
+  controller=`ovs-vsctl get-controller br0 | cut -d':' -f2`
+  if [ ! -z $controller ] 
+  then
+    controllerFlowLines=`ovs-ofctl dump-flows br0 | grep $controller`
+    if [ -z $controllerFlowLines ]
+    then
+      ovs-vsctl set bridge br0 stp_enable=true
+      ovs-vsctl del-controller br0 
+      ovs-vsctl set bridge br0 protocols=[]
+    fi
+  fi
 fi
 
 ip link set dev br0 up
