@@ -14,7 +14,7 @@ then
   ovs-vsctl --no-wait init
 
   ovs-vsctl add-br br0
-  ovs-vsctl set bridge br0 stp_enable=true
+  #ovs-vsctl set bridge br0 stp_enable=true
 
   x=0
   until [ $x = "16" ]; do
@@ -34,7 +34,7 @@ else
     controllerFlowLines=`ovs-ofctl dump-flows br0 | grep $controller`
     if [ -z $controllerFlowLines ]
     then
-      ovs-vsctl set bridge br0 stp_enable=true
+      #ovs-vsctl set bridge br0 stp_enable=true
       ovs-vsctl del-controller br0 
       ovs-vsctl set bridge br0 protocols=[]
     fi

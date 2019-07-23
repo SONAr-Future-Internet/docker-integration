@@ -79,7 +79,7 @@ RUN apk del build-dependencies \
 
 VOLUME /etc/openvswitch/
 
-ADD scripts/boot.sh /bin/boot.sh
+ADD scripts/boot-test.sh /bin/boot.sh
 
 ADD archives/sysctl.conf /etc/sysctl.conf
 
