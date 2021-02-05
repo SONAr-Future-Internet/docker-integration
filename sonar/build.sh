@@ -21,7 +21,7 @@ case ${1,,} in
 	spe)  	target="self-organizing-entities/self-protection-entity" ;;
 	asb)  	target="sonar-service-broker/administration-service-broker" ;;
 	csb)  	target="sonar-service-broker/customer-service-broker" ;;
-	cpi)	target="function-apps/control-plane-interceptor" ;;
+	cpi)	target="custom-components/sonar-controller-interceptor" ;;
 	cim)	target="custom-components/sonar-containerized-infrastructure-manager" ;;
 	dhcp)	target="custom-components/sonar-dhcp-server" ;;
 	abm)  	target="auto-boot-manager" ;;
@@ -45,7 +45,7 @@ case ${1,,} in
 	self-protection-entity)  					target="self-organizing-entities/self-protection-entity" ;;
 	administration-service-broker)  			target="sonar-service-broker/administration-service-broker" ;;
 	customer-service-broker)  					target="sonar-service-broker/customer-service-broker" ;;
-	control-plance-interceptor)					target="function-apps/control-plane-interceptor" ;;
+	control-plance-interceptor)					target="custom-components/sonar-controller-interceptor" ;;
 	containerized-infrastructure-manager)		target="custom-components/sonar-containerized-infrastructure-manager" ;;
 	dhcp-server)								target="custom-components/sonar-dhcp-server" ;;
 	auto-boot-manager)  						target="auto-boot-manager" ;;
@@ -69,7 +69,7 @@ case ${1,,} in
 	protection-entity)  	target="self-organizing-entities/self-protection-entity" ;;
 	administration-broker)  target="sonar-service-broker/administration-service-broker" ;;
 	customer-broker)  		target="sonar-service-broker/customer-service-broker" ;;
-	interceptor)			target="function-apps/control-plane-interceptor" ;;
+	interceptor)			target="custom-components/sonar-controller-interceptor" ;;
 	container-manager)		target="custom-components/sonar-containerized-infrastructure-manager" ;;
 	boot-manager)  			target="auto-boot-manager" ;;
 	dashboard)   			target="sonar-dashboard" ;;
